@@ -13,8 +13,8 @@ describe 'garage-pc::default' do
       runner.converge(described_recipe)
     end
 
-    it 'converges successfully' do
-      expect { chef_run }.to_not raise_error
+    it 'creates the temp directory' do
+      expect { chef_run }.to create_directory('c:\temp')
     end
   end
 end

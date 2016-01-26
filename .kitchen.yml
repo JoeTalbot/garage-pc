@@ -1,21 +1,30 @@
 ---
-driver:
-  name: vagrant
-
-provisioner:
-  name: chef_zero
-
-# Uncomment the following verifier to leverage Inspec instead of Busser (the
-# default verifier)
-# verifier:
-#   name: inspec
 
 platforms:
-  - name: ubuntu-14.04
-  - name: centos-7.1
-
+  
+ # Windows Platform
+  - name: windows-7-vagrant
+    driver:
+      name: vagrant
+      vagrantfiles:
+        - vagrantfile.rb #Changes to Vagrantfile will only be handled during initial build
+      box: win7vagrant
+      box_url: file://C:/Users/z069057/VirtualBox%20VMs/win7vagrant.box
+      vm_hostname: win7vagrant
+      customize:
+        memory: 2048
+        cpus: 2
+    transport:
+      name: winrm
+      
 suites:
+ 
+ # Windows Suite
   - name: default
+    provisioner:
+      name: chef_zero_scheduled_task
+      chef_metadata_url: http://www.chef.io/chef/metadata?p=windows&m=x86_64&pv=2012r2&v=12.5.1
     run_list:
       - recipe[garage-pc::default]
     attributes:
+     
