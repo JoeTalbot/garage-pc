@@ -4,3 +4,5 @@ default['garage-pc']['chrome_msi'] = 'http://10.0.0.115:8081/artifactory/Install
 #default['garage-pc']['spotify_exe'] = 'http://upgrade.spotify.com/upgrade/client/win32-x86/spotify_installer-1.0.7.157.g2a6526f9-88.exe'
 
 default['garage-pc']['spotify_exe'] = 'http://10.0.0.115:8081/artifactory/Install/spotify_installer-1.0.7.157.g2a6526f9-88.exe'
+
+default['garage-pc']['background_zip'] = 'http://10.0.0.115:8081/artifactory/Install/backgrounds/girls/Backgrounds.zip'

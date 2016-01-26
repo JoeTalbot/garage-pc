@@ -9,14 +9,29 @@ platforms:
       vagrantfiles:
         - vagrantfile.rb #Changes to Vagrantfile will only be handled during initial build
       box: win7vagrant
-      box_url: file://C:/Users/z069057/VirtualBox%20VMs/win7vagrant.box
+      box_url: http://bin-repo:8081/artifactory/Install/vagrant_boxes/windows/win7vagrant.box
       vm_hostname: win7vagrant
       customize:
         memory: 2048
         cpus: 2
     transport:
       name: winrm
-      
+  
+ # Windows Platform
+  - name: windows-10-vagrant
+    driver:
+      name: vagrant
+      vagrantfiles:
+        - vagrantfile.rb #Changes to Vagrantfile will only be handled during initial build
+      box: win10vagrant
+      box_url: http://bin-repo:8081/artifactory/Install/vagrant_boxes/windows/win10vagrant.box
+      vm_hostname: win10vagrant
+      customize:
+        memory: 4096
+        cpus: 2
+    transport:
+      name: winrm
+            
 suites:
  
  # Windows Suite

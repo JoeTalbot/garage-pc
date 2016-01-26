@@ -40,3 +40,14 @@ user 'garage-pc'do
   password 'garage123'
   action :create
 end
+
+#get background images
+remote_file 'c:\temp\backgrounds.zip' do
+  source node['garage-pc']['background_zip']
+end
+
+windows_zipfile 'C:\Users\vagrant\Pictures' do
+    source 'c:\temp\backgrounds.zip'
+    action :unzip
+    not_if {::File.exists?('C:\Users\vagrant\Pictures\backgrounds')}
+end
